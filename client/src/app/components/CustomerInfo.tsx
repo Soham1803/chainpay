@@ -3,11 +3,28 @@ import { readFileSync } from 'fs'
 import React from 'react'
 import PhoneNoCodes from './PhoneNoCodes'
 
+import { Radio } from 'antd';
+import SwapCard from './SwapCard';
+
+import swap_button from '../svgs/flip';
+import Swap from './Swap';
+
+
 const CustomerInfo = () => {
 
+    const actionModes = ['swap', 'pay', 'onramp', 'message'];
 
+    const [actionMode , setActionMode] = React.useState(0);
+
+    const onChange = (e: any) => {
+        setActionMode(e.target.value);
+        console.log(actionMode);
+        console.log(actionModes[actionMode]);
+    }
 
     return (
+
+
         <div className='flex flex-col items-center justify-evenly w-full h-70% bg-slate-200 px-12 py-2'>
             <div className='flex flex-row items-start justify-start w-90% mb-4 text-[#505050] text-sm' >Customer Information</div>
 
@@ -47,7 +64,18 @@ const CustomerInfo = () => {
 
             </div>
 
-            <div className='w-90% gap-2 h-2/5 border-[1px] border-[#8F8F8F] rounded-[5px]'></div>
+            <div className='flex flex-col items-center justify-between w-90% gap-2 h-2/5 border-[1px] border-[#8F8F8F] rounded-[5px]'>
+                <div className='flex justify-center w-95% h-20% '>
+                    <Radio.Group size='large' onChange={onChange} defaultValue='0'>
+                      <Radio.Button style={{width: 175, textAlign: 'center'}} value="0">SWAP</Radio.Button>
+                      <Radio.Button style={{width: 175, textAlign: 'center'}} value="1">PAY</Radio.Button>
+                      <Radio.Button style={{width: 175, textAlign: 'center'}} value="2">ON-RAMP</Radio.Button>
+                      <Radio.Button style={{width: 175, textAlign: 'center'}} value="3">MESSAGE</Radio.Button>
+                    </Radio.Group>
+                </div>
+
+                <Swap />
+            </div>
 
         </div>
     )
