@@ -8,7 +8,7 @@ const ModeIndicator = () => {
   const [mode, setMode] = React.useState(modeArr[0]);
 
   return (
-    <div className="flex flex-row justify-evenly items-center p-5 h-15% w-full bg-slate-400">
+    <div className="flex flex-row justify-evenly items-center p-5 h-15% w-full">
         <div className="flex flex-col items-center gap-1"> 
             <div
               className={cn(
