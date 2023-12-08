@@ -5,7 +5,12 @@ import cn from './utils/cn'
 import ModeIndicator from './components/ModeIndicator'
 import CustomerInfo from './components/CustomerInfo'
 
+import { Carousel, Image } from 'antd';
+import Banner from './components/Banner';
+
 const page = () => {
+
+
 
 
   return (
@@ -27,7 +32,7 @@ const page = () => {
       </div>
 
       {/* // Right side */}
-      <div className='flex flex-col h-full w-2/5'></div>
+      <Banner />
 
     </div>
   )

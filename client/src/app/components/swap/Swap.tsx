@@ -1,5 +1,5 @@
 import React from 'react'
-import flip from '../svgs/flip'
+import flip from '../../svgs/flip'
 import SwapCard from './SwapCard'
 
 const Swap = () => {

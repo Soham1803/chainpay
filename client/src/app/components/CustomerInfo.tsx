@@ -4,17 +4,18 @@ import React from 'react'
 import PhoneNoCodes from './PhoneNoCodes'
 
 import { Radio } from 'antd';
-import SwapCard from './SwapCard';
+import SwapCard from './swap/SwapCard';
 
 import swap_button from '../svgs/flip';
-import Swap from './Swap';
+import Swap from './swap/Swap';
+import Pay from './pay/Pay';
 
 
 const CustomerInfo = () => {
 
     const actionModes = ['swap', 'pay', 'onramp', 'message'];
 
-    const [actionMode , setActionMode] = React.useState(0);
+    const [actionMode , setActionMode] = React.useState(1);
 
     const onChange = (e: any) => {
         setActionMode(e.target.value);
@@ -74,7 +75,10 @@ const CustomerInfo = () => {
                     </Radio.Group>
                 </div>
 
-                <Swap />
+                {actionMode === 0 ? <Swap /> :
+                actionMode === 1 ? <Pay /> :
+                    <div></div>
+                }
             </div>
 
         </div>
