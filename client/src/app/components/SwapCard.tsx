@@ -11,9 +11,9 @@ const SwapCard = ({from}) => {
         <div className='h-10% w-full flex flex-row items-center justify-between text-sm ml-4'>{from ? "From" : "To"}</div>
 
         <div className='flex flex-row w-full items-center justify-between h-70%'>
-            
-            <div className='h-full w-70% flex flex-row items-center justify-start p-0 bg-slate-300'>
-                <img className='rounded-full bg-slate-600' width={45} src="" alt="" />
+
+            <div className='h-full w-70% flex flex-row items-center justify-start p-0 '>
+                <img className='rounded-full ' width={45} src="" alt="" />
                 <Select className='text-sm font-semibold' defaultValue="MATIC" style={{ width: 100, fontWeight: 600 }} bordered={false}>
                     {chains?.map((code: any) => (
                         <Select.Option value={code.code}>{code.dial_code} <span className='text-sm font-semibold' >{code.code}</span> </Select.Option>
@@ -21,12 +21,12 @@ const SwapCard = ({from}) => {
                 </Select>
             </div>
 
-            <div className='w-25% h-70% bg-slate-500 rounded-[8px] '>
+            <div className='w-25% h-70%  rounded-[8px] '>
                 {
                     from ?
-                    <input className='flex items-center justify-center h-full w-full text-sm font-semibold  p-1 bg-slate-500' placeholder='0.00' />
+                    <input className='flex items-center justify-center h-full w-full text-sm font-semibold  p-1 rounded-[8px]' placeholder='0.00' />
                     :
-                    <div className='flex items-center justify-center h-full w-full text-sm font-semibold p-1 bg-slate-500'>0.00</div>
+                    <div className='flex items-center justify-center h-full w-full text-sm font-semibold p-1 '>0.00</div>
                 }
             </div>
         </div>    

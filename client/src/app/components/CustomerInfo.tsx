@@ -25,7 +25,7 @@ const CustomerInfo = () => {
     return (
 
 
-        <div className='flex flex-col items-center justify-evenly w-full h-70% bg-slate-200 px-12 py-2'>
+        <div className='flex flex-col items-center justify-evenly w-full h-70% px-12 py-2'>
             <div className='flex flex-row items-start justify-start w-90% mb-4 text-[#505050] text-sm' >Customer Information</div>
 
             <div className=' grid grid-cols-1 divide-y px-4 divide-[#8F8F8F] w-90% h-2/5 border-[1px] border-[#8F8F8F] rounded-[5px]'>
