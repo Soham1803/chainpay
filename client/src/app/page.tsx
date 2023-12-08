@@ -1,16 +1,32 @@
 import React from 'react'
 
+import cn from './utils/cn'
+
+import ModeIndicator from './components/ModeIndicator'
+import CustomerInfo from './components/CustomerInfo'
+
 const page = () => {
+
+
   return (
     <div className='flex flex-wrap flex-row w-full h-full'>
 
+
+      {/* Left side */}
       <div className='flex flex-col h-full w-3/5 bg-slate-500'>
+        {/* // Status bar */}
         <div className='flex flex-row gap-2 items-center justify-start p-3 text-8rem font-semibold h-10% w-full bg-slate-200'>
-          <img src='/logos/chainpay_logo.png' width='37' />
+          <img src='/logos/chainpay-logo.png' width='37' />
           Chainpay
         </div>
+
+        <ModeIndicator />
+
+        <CustomerInfo />
+
       </div>
 
+      {/* // Right side */}
       <div className='flex flex-col h-full w-2/5'></div>
 
     </div>
