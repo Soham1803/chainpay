@@ -5,12 +5,10 @@ import cn from './utils/cn'
 import ModeIndicator from './components/ModeIndicator'
 import CustomerInfo from './components/CustomerInfo'
 
-import { Carousel, Image } from 'antd';
 import Banner from './components/Banner';
 
+
 const page = () => {
-
-
 
 
   return (
