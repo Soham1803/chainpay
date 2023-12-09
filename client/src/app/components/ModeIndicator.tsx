@@ -2,17 +2,19 @@
 
 import React, { useState } from "react";
 import cn from "../utils/cn";
+import { useChainStore } from "./store/chainStore";
 
 const ModeIndicator = () => {
   const modeArr = ["swap", "pay", "onramp", "done"];
-  const [mode, setMode] = React.useState(modeArr[0]);
+  // const [mode, setMode] = React.useState(modeArr[0]);
+  const mode: number = useChainStore() as any;
 
   return (
     <div className="flex flex-row justify-evenly items-center p-5 h-15% w-full">
         <div className="flex flex-col items-center gap-1"> 
             <div
               className={cn(
-                mode === modeArr[0] ? "bg-[#39A7FF]" : "bg-white",
+                mode === 0 ? "bg-[#39A7FF]" : "bg-white",
                 "w-[50px] h-[50px]  border-[2px] border-[#39A7FF] rounded-full flex items-center justify-center"
               )}
             >
@@ -24,7 +26,7 @@ const ModeIndicator = () => {
         <div className="flex flex-col items-center gap-1"> 
             <div
               className={cn(
-                mode === modeArr[1] ? "bg-[#39A7FF]" : "bg-white",
+                mode === 1 ? "bg-[#39A7FF]" : "bg-white",
                 "w-[50px] h-[50px]  border-[2px] border-[#39A7FF] rounded-full flex items-center justify-center"
               )}
             >
@@ -36,7 +38,7 @@ const ModeIndicator = () => {
         <div className="flex flex-col items-center gap-1"> 
             <div
               className={cn(
-                mode === modeArr[2] ? "bg-[#39A7FF]" : "bg-white",
+                mode === 2 ? "bg-[#39A7FF]" : "bg-white",
                 "w-[50px] h-[50px]  border-[2px] border-[#39A7FF] rounded-full flex items-center justify-center"
               )}
             >
@@ -48,7 +50,7 @@ const ModeIndicator = () => {
         <div className="flex flex-col items-center gap-1"> 
             <div
               className={cn(
-                mode === modeArr[3] ? "bg-[#39A7FF]" : "bg-white",
+                mode === 3 ? "bg-[#39A7FF]" : "bg-white",
                 "w-[50px] h-[50px]  border-[2px] border-[#39A7FF] rounded-full flex items-center justify-center"
               )}
             >

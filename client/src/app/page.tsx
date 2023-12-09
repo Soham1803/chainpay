@@ -19,8 +19,8 @@ import cn from './utils/cn'
 import ModeIndicator from './components/ModeIndicator'
 import CustomerInfo from './components/CustomerInfo'
 
-import { Carousel, Image } from 'antd';
 import Banner from './components/Banner';
+
 
 const page = () => {
 
@@ -36,6 +36,7 @@ const page = () => {
   const [consoleTitle, setConsoleTitle] = useState<string>('')
   const [provider, setProvider] = useState<BrowserProvider>()
 
+<<<<<<< HEAD
   useEffect(() => {
     // @ts-expect-error - Missing globals
     const params = new URL(window.document.location).searchParams
@@ -116,6 +117,8 @@ const logout = async () => {
 }
 
 
+=======
+>>>>>>> main
   return (
     <div className='flex flex-wrap flex-row w-full h-full'>
 

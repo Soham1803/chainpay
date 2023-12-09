@@ -1,6 +1,6 @@
 'use client'
 import { readFileSync } from 'fs'
-import React from 'react'
+import React, { use } from 'react'
 import PhoneNoCodes from './PhoneNoCodes'
 
 import { Button, Radio, Typography } from 'antd';
@@ -9,6 +9,7 @@ import SwapCard from './swap/SwapCard';
 import swap_button from '../svgs/flip';
 import Swap from './swap/Swap';
 import Pay from './pay/Pay';
+<<<<<<< HEAD
 import { SafeAuthUserInfo } from '@safe-global/auth-kit';
 import { Box } from '@mui/material';
 
@@ -18,18 +19,25 @@ type CustomerInfoProps = {
     onLogout: () => void
     userInfo?: SafeAuthUserInfo
 }
+=======
+import OnRamp from './on-ramp/OnRamp';
+import Message from './message/Message';
+
+import { useChainStore } from './store/chainStore';
+>>>>>>> main
 
 
 const CustomerInfo = ({isLoggedIn, onLogin, onLogout, userInfo}: CustomerInfoProps) => {
 
     const actionModes = ['swap', 'pay', 'onramp', 'message'];
 
-    const [actionMode , setActionMode] = React.useState(1);
+    const {mode, setMode} = useChainStore() as any;
+
 
     const onChange = (e: any) => {
-        setActionMode(e.target.value);
-        console.log(actionMode);
-        console.log(actionModes[actionMode]);
+        setMode(e.target.value);
+        console.log(mode);
+       
     }
 
     return (
@@ -90,16 +98,17 @@ const CustomerInfo = ({isLoggedIn, onLogin, onLogout, userInfo}: CustomerInfoPro
             <div className='flex flex-col items-center justify-between w-90% gap-2 h-2/5 border-[1px] border-[#8F8F8F] rounded-[5px]'>
                 <div className='flex justify-center w-95% h-20% '>
                     <Radio.Group size='large' onChange={onChange} defaultValue='0'>
-                      <Radio.Button style={{width: 175, textAlign: 'center'}} value="0">SWAP</Radio.Button>
-                      <Radio.Button style={{width: 175, textAlign: 'center'}} value="1">PAY</Radio.Button>
-                      <Radio.Button style={{width: 175, textAlign: 'center'}} value="2">ON-RAMP</Radio.Button>
-                      <Radio.Button style={{width: 175, textAlign: 'center'}} value="3">MESSAGE</Radio.Button>
+                      <Radio.Button style={{width: 150, textAlign: 'center'}} value={0}>SWAP</Radio.Button>
+                      <Radio.Button style={{width: 150, textAlign: 'center'}} value={1}>PAY</Radio.Button>
+                      <Radio.Button style={{width: 150, textAlign: 'center'}} value={2}>ON-RAMP</Radio.Button>
+                      <Radio.Button style={{width: 150, textAlign: 'center'}} value={3}>MESSAGE</Radio.Button>
                     </Radio.Group>
                 </div>
 
-                {actionMode === 0 ? <Swap /> :
-                actionMode === 1 ? <Pay /> :
-                    <div></div>
+                {mode === 0 ? <Swap /> :
+                mode === 1 ? <Pay /> :
+                    mode === 2 ? <OnRamp /> :
+                    mode === 3 ? <Message /> : null
                 }
             </div>
 

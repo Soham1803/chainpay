@@ -17,16 +17,16 @@ const Banner = () => {
           <div className='h-70%'>
           <Carousel autoplay>
           
-             <Image src="/logos/push.png" width={50} alt="" />
+             <Image src="/logos/push.png" width={10} alt="" />
           
           
-             <img src="" alt="" />
+             {/* <img src="" alt="" />
         
           
              <img src="" alt="" />
         
           
-             <img src="" alt="" />
+             <img src="" alt="" /> */}
           
          </Carousel>
           </div>
