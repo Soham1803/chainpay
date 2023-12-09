@@ -126,16 +126,32 @@ const logout = async () => {
         <div className='flex flex-row gap-2 items-center justify-start p-3 text-8rem font-semibold h-10% w-full '>
           <img src='/logos/chainpay-logo.png' width='37' />
           Chainpay
-
-          <div>
-            <Button onClick={login}>Login</Button>
-            <Button onClick={logout}>Logout</Button>
-          </div>
+{/* @ts-ignore */}
+<Box mr={5}>
+        {!!safeAuthPack?.isAuthenticated ? (
+          <Box display="flex" alignItems="center">
+            
+            <Button variant="contained" onClick={logout} sx={{ ml: 2 }}>
+              Log Out
+            </Button>
+          </Box>
+        ) : (
+          <Button variant="contained" onClick={login}>
+            Login
+          </Button>
+        )}
+      </Box>
         </div>
 
         <ModeIndicator />
 
-        <CustomerInfo />
+        <CustomerInfo 
+        onLogin={login}
+        onLogout={logout}
+        isLoggedIn={!!safeAuthPack?.isAuthenticated}
+          userInfo={userInfo || undefined}
+          
+        />
 
       </div>
 

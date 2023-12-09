@@ -3,15 +3,24 @@ import { readFileSync } from 'fs'
 import React from 'react'
 import PhoneNoCodes from './PhoneNoCodes'
 
-import { Radio } from 'antd';
+import { Button, Radio, Typography } from 'antd';
 import SwapCard from './swap/SwapCard';
 
 import swap_button from '../svgs/flip';
 import Swap from './swap/Swap';
 import Pay from './pay/Pay';
+import { SafeAuthUserInfo } from '@safe-global/auth-kit';
+import { Box } from '@mui/material';
+
+type CustomerInfoProps = {
+    isLoggedIn: boolean 
+    onLogin: () => void
+    onLogout: () => void
+    userInfo?: SafeAuthUserInfo
+}
 
 
-const CustomerInfo = () => {
+const CustomerInfo = ({isLoggedIn, onLogin, onLogout, userInfo}: CustomerInfoProps) => {
 
     const actionModes = ['swap', 'pay', 'onramp', 'message'];
 
@@ -33,7 +42,20 @@ const CustomerInfo = () => {
 
                 {/* UserName */}
                 <div className='flex flex-row items-center justify-start text-sm font-semibold px-2 py-0'>
-                    Yash Thipsay
+                  {
+                    isLoggedIn ? (
+                        <Box display="flex" alignItems="center">
+                        {userInfo && (
+                            <Typography>
+                              Hello {userInfo.name || userInfo.email} !!
+                            </Typography>
+                          )}
+                           
+                          </Box>
+                    ) : ( 
+                        <></>
+                      )
+                  }
                 </div>
                 {/* Contacts */}
                 <div className='flex flex-row justify-evenly items-center'>
@@ -43,7 +65,7 @@ const CustomerInfo = () => {
                     </div>
 
                     <div className='h-auto w-5/12 flex flex-row items-center justify-start text-sm font-semibold'>
-                        yashthipsay@exp.com
+                        Email: {isLoggedIn ? userInfo?.email : (<></>)}
                     </div>
                 </div>
 
