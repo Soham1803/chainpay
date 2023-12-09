@@ -21,6 +21,8 @@ import CustomerInfo from './components/CustomerInfo'
 
 import { Carousel, Image, Modal } from 'antd';
 import Banner from './components/Banner';
+import { useChainStore } from './components/store/chainStore'
+import { send } from 'process'
 
 const page = () => {
 
@@ -38,7 +40,8 @@ const page = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
+const {address, setAddress} = useChainStore();
+const {amount, setAmount} = useChainStore();
 
   useEffect(() => {
     // @ts-expect-error - Missing globals
@@ -137,7 +140,9 @@ const getChainId = async () => {
   uiConsole('ChainId', chainId)
 }
 
-const signAndExecuteSafeTx = async (index: number) => {
+
+
+const signAndExecuteSafeTx = async (amount: number) => {
   const safeAddress = safeAuthSignInResponse?.safes?.[index] || '0x'
 
   // Wrap Web3Auth provider with ethers
@@ -158,7 +163,7 @@ const signAndExecuteSafeTx = async (index: number) => {
       {
         to: ethers.getAddress(safeAuthSignInResponse?.eoa || '0x'),
         data: '0x',
-        value: ethers.parseUnits('0.0001', 'ether').toString()
+        value: ethers.parseUnits(amount.toString(), 'ether').toString()
       }
     ]
   })
@@ -172,9 +177,23 @@ const signAndExecuteSafeTx = async (index: number) => {
   uiConsole('Safe Transaction Result', txResult)
 }
 
+
+
 const uiConsole = (title: string, message: unknown) => {
   setConsoleTitle(title)
   setConsoleMessage(typeof message === 'string' ? message : JSON.stringify(message, null, 2))
+}
+const sendTransaction = async () => {
+  const tx = await provider?.send('eth_sendTransaction', [
+    {
+      from: safeAuthSignInResponse?.eoa,
+      to: safeAuthSignInResponse?.eoa,
+      value: ethers.parseUnits('0.00001', 'ether').toString(),
+      gasLimit: 21000
+    }
+  ])
+
+  uiConsole('Transaction Response', tx)
 }
 
 
