@@ -190,16 +190,18 @@ const uiConsole = (title: string, message: unknown) => {
           <img src='/logos/chainpay-logo.png' width='37' />
           Chainpay
 {/* @ts-ignore */}
-<Box mr={5}>
+      <Box mr={5}>
         {!!safeAuthPack?.isAuthenticated ? (
           <>
+          <div className='flex flex-row items-center w-auto h-auto'>
           <Box display="flex" alignItems="center">
-            
             <Button variant="contained" onClick={logout} sx={{ ml: 2 }}>
               Log Out
             </Button>
           </Box>
           <Button onClick={handleOpen}>Open modal</Button>
+          </div>
+
           <Modal
             open={open}
             onCancel={handleClose}
@@ -233,7 +235,16 @@ const uiConsole = (title: string, message: unknown) => {
               color="secondary"
               sx={{ mt: 2, overflowWrap: 'break-word' }}
             >
+
               {consoleMessage}
+              {/* <div>Name: {consoleMessage.('name')} </div>
+              <img src={consoleMessage).profileImage} alt="" />
+              <div>Email: {consoleMessage).email} </div>
+              <div>Verifier: {JSON.parse(consoleMessage).verifier}</div>
+              <div>VerifierID: {JSON.parse(consoleMessage).verifierId}</div>
+              <div>Verifier Params: {consoleMessage)verifierParams}</div>
+              <div>Type of Login: {consoleMessage)typeOfLogin}</div> */}
+              
             </Typography>
             </Box>
           </Modal>

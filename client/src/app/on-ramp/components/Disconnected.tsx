@@ -4,9 +4,11 @@ import { Box, Typography } from '@mui/material'
 function Disconnected() {
   return (
     <Box p={2}>
-      <Typography className='hover: bg-slate-300' border={1} borderRadius='6px' maxWidth={100} variant="h5" color="primary">
-        Connect
-      </Typography>
+      <div className='cursor-pointer'>
+        <Typography  border={1} borderRadius='6px' maxWidth={100} variant="h5" color="primary">
+          Connect
+        </Typography>
+      </div>
       <Typography variant="body1" sx={{ mt: 2 }}>
         Use the connect button in the header for using your regular wallet or Social providers in
         order to authenticate with an owner

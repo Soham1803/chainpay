@@ -24,14 +24,14 @@ const AppBar = () => {
         OnRamp
       </Typography>
       <nav>
-        <Link to={`/monerium`} component={RouterLink} pl={2} sx={{ textDecoration: 'none' }}>
+        <Link to={`/on-ramp`} component={RouterLink} pl={2} sx={{ textDecoration: 'none' }}>
           Monerium
         </Link>
       </nav>
       <Box mr={5} display="flex" justifyContent="flex-end" alignItems="center" width="100%">
         {isLoggedIn ? (
           <>
-            <EthHashInfo name="Owner" address={data?.eoa || ''} showCopyButton />
+            {/* <EthHashInfo name="Owner" address={data?.eoa || ''} showCopyButton /> */}
 
             {data && data?.safes && data?.safes?.length > 0 && (
               <Select
@@ -43,7 +43,7 @@ const AppBar = () => {
               >
                 {data?.safes.map((safe, index) => (
                   <MenuItem key={safe} value={safe}>
-                    <EthHashInfo name={`Safe ${index + 1}`} address={safe} showCopyButton />
+                    {/* <EthHashInfo name={`Safe ${index + 1}`} address={safe} showCopyButton /> */}
                   </MenuItem>
                 ))}
               </Select>
