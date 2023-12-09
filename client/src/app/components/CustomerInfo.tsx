@@ -47,7 +47,7 @@ const CustomerInfo = ({isLoggedIn, onLogin, onLogout, userInfo}: CustomerInfoPro
                         <Box display="flex" alignItems="center">
                         {userInfo && (
                             <Typography>
-                              Hello {userInfo.name || userInfo.email} !!
+                              Hello {userInfo.name} !!
                             </Typography>
                           )}
                            
@@ -74,7 +74,7 @@ const CustomerInfo = ({isLoggedIn, onLogin, onLogout, userInfo}: CustomerInfoPro
                     <div className='h-auto w-5% flex flex-row items-center justify-start text-sm font-semibold'>
                         <img src='https://www.vhv.rs/dpng/d/420-4206472_fork-cryptocurrency-ethereum-bitcoin-classic-png-download-ethereum.png' width='25' />
                     </div>
-                    <div className='text-sm font-semibold ml-1'>Etherium</div>
+                    <div className='text-sm font-semibold ml-1'>Ethereum</div>
                 </div>
                 {/* Eth address */}
                 <div className='flex items-center justify-start text-sm font-semibold'>
