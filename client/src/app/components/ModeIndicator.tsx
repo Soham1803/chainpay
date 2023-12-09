@@ -4,10 +4,14 @@ import React, { useEffect, useState } from "react";
 import cn from "../utils/cn";
 import { useChainStore } from "./store/chainStore";
 
+interface Mode{
+  mode: number
+}
+
 const ModeIndicator = () => {
   const modeArr = ["swap", "pay", "onramp", "done"];
   // const [mode, setMode] = React.useState(modeArr[0]);
-  const mode: number = useChainStore() as any;
+  const mode: Mode = useChainStore() as Mode;
 
   useEffect(() => {
     console.log(`Mode: ${JSON.stringify(mode)}`);
