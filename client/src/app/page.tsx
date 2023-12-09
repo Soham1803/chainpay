@@ -8,7 +8,8 @@ import {
 } from '@safe-global/auth-kit'
 import {EthHashInfo} from '@safe-global/safe-react-components'
 import Safe, {EthersAdapter} from '@safe-global/protocol-kit'
-import {ethers, BrowserProvider, Eip1193Provider} from 'ethers';
+import { ethers } from 'ethers';
+import {BrowserProvider, Eip1193Provider} from 'ethers';
 import { getSafeTxV4TypedData, getTypedData, getV3TypedData } from './typedData'
 import { Box, Button, Divider, Grid, Typography } from '@mui/material'
 import {createTheme} from '@mui/system';

@@ -18,7 +18,7 @@ type CustomerInfoProps = {
     onLogout: () => void
     userInfo?: SafeAuthUserInfo
 }
-import OnRamp from './on-ramp/OnRamp';
+import OnRamp from './onramp/OnRamp';
 import Message from './message/Message';
 
 import { useChainStore } from './store/chainStore';
