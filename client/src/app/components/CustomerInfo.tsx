@@ -102,8 +102,8 @@ const CustomerInfo = ({isLoggedIn, onLogin, onLogout, userInfo}: CustomerInfoPro
                     </Radio.Group>
                 </div>
 
-                {mode === 0 ? <Swap /> :
-                mode === 1 ? <Pay /> :
+                {   mode === 0 ? <Swap /> :
+                    mode === 1 ? <Pay /> :
                     mode === 2 ? <OnRamp /> :
                     mode === 3 ? <Message /> : null
                 }
