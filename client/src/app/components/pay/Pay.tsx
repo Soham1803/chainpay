@@ -241,7 +241,7 @@ const {amount, setAmount} = useChainStore();
   }
   return (
     <div className='flex flex-col items-center justify-evenly w-full h-4/6 overflow-scroll'>
-       <div className='flex flex-row h-20% w-80% items-center justify-center gap-4 '>
+       {!safeAuthSignInResponse?.eoa && (<div><div className='flex flex-row h-20% w-80% items-center justify-center gap-4 '>
             <div className='text-black text-lg'>The Amount to be Paid: </div>
             <input type="text" placeholder='Amount' className='text-lg text-[#8F8F8F] font-bold px-2 rounded-[6px] border-[1px] border-black' onChange={(e) => {setPrice(e.target.value)}} />
         </div> 
@@ -252,28 +252,31 @@ const {amount, setAmount} = useChainStore();
         
         <div className='flex flex-row h-20% w-80% items-center justify-center'>
             <button onClick={() => sendTransaction() } className='flex items-center justify-center  w-30% rounded-[50px] h-full font-bold text-white bg-[#39A7FF] cursor-pointer'>PAY</button>
-        </div>
+        </div></div>)}
         {safeAuthSignInResponse?.eoa && (
         <Grid container>
-          <Grid item md={4} p={4}>
-            <Typography variant="h3" color="secondary" fontWeight={700}>
-              Signer
+          <Grid item md={2} p={2}>
+            <Typography fontSize={20} variant="h3" color="secondary" fontWeight={700}>
+              Signer:
             </Typography>
             <Divider sx={{ my: 3 }} />
-            <Divider sx={{ my: 2 }} />
-            <Typography variant="h4" color="primary" fontWeight="bold">
-              Chain{' '}
+            <Typography variant="h4" fontSize={20} color="primary" fontWeight="bold">
+              Chain:{' '}
               <Typography component="span" color="secondary" fontSize="1.45rem">
                 {chainId}
               </Typography>
             </Typography>
-            <Typography variant="h4" color="primary" sx={{ my: 1 }} fontWeight="bold">
-              Balance{' '}
+            <Divider sx={{ my: 3 }} />
+            <Typography variant="h4" fontSize={20} color="primary" sx={{ my: 1 }} fontWeight="bold">
+              Balance:{' '}
               <Typography component="span" color="secondary" fontSize="1.45rem">
                 {balance}
               </Typography>
             </Typography>
             <Divider sx={{ my: 2 }} />
+          <Grid />
+          
+            <div className='flex flex-row items-center justify-evenly w-full'>
             <Button
               variant="contained"
               fullWidth
@@ -283,6 +286,7 @@ const {amount, setAmount} = useChainStore();
             >
               getUserInfo
             </Button>
+
             <Button
               fullWidth
               variant="contained"
@@ -293,8 +297,6 @@ const {amount, setAmount} = useChainStore();
               eth_accounts
             </Button>
             
-           
-           
             <Button
               fullWidth
               variant="contained"
@@ -304,11 +306,12 @@ const {amount, setAmount} = useChainStore();
             >
               eth_sendTransaction
             </Button>
+            </div>
             
           </Grid>
           <Grid item md={3} p={4}>
             <>
-              <Typography variant="h3" color="secondary" fontWeight={700}>
+              <Typography fontSize={20} variant="h3" color="secondary" fontWeight={700}>
                 Safe accounts
               </Typography>
               <Divider sx={{ my: 2 }} />
@@ -330,14 +333,14 @@ const {amount, setAmount} = useChainStore();
                   </>
                 ))
               ) : (
-                <Typography variant="body1" color="secondary" fontWeight={700}>
+                <Typography variant="body1"  fontSize={20} color="secondary" fontWeight={700}>
                   No Available Safes
                 </Typography>
               )}
             </>
           </Grid>
           <Grid item md={5} p={4}>
-            <Typography variant="h3" color="secondary" fontWeight={700}>
+            <Typography fontSize={20} variant="h3" color="secondary" fontWeight={700}>
               Console
             </Typography>
             <Divider sx={{ my: 2 }} />
