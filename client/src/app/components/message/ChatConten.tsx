@@ -21,7 +21,7 @@ const ChatContent = ({ messages }: ChatContentProps) => {
             }
           </div>
           <div
-            className={`px-2 w-fit py-3 flex flex-col bg-purple-500 rounded-lg text-white ${
+            className={`px-2 w-fit py-3 flex flex-col bg-[#39A7FF] rounded-lg text-white ${
               message.origin === 'self' ? "order-1 mr-2" : "order-2 ml-2"
             }`}
           >

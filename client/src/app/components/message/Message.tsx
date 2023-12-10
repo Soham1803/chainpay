@@ -52,7 +52,7 @@ const PushChatNoGroup = () => {
       <h2 className="text-sm px-1 py-0 font-semibold text-start">Connect Wallet</h2>
       </div>
       <Button
-        className="w-8/12 px-3 py-[1px] mt-6 bg-[#39A7FF]"
+        className="w-8/12 px-3 py-[1px] mt-6 bg-[#39A7FF] text-white active:bg-[#39F7FF]"
         onClick={async () => {
           await initUser();
           setWalletConnected(true);

@@ -37,7 +37,7 @@ const DMRequests = ({ pushChatUser }: {
                         {
                             requests?.map((request) => {
                                 return (
-                                    <div className='flex gap-2 flex-row items-center justify-evenly' key={request.chatId}>
+                                    <div className='flex gap-2 flex-row items-center justify-evenly border-black border-2 rounded-[40px]' key={request.chatId}>
                                         <div className='w-1/3  text-sm flex flex-row items-center'>{ request.msg.messageObj?.content}</div>
                                         <div className='w-1/3 text-sm truncate'>{':'} {request.msg.fromDID?.split(':')[1]}</div>
                                         <Button
